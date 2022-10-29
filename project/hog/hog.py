@@ -61,7 +61,11 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
     assert opponent_score < 100, 'The game should be over.'
     # BEGIN PROBLEM 3
-    "*** YOUR CODE HERE ***"
+    if num_rolls != 0:
+        score = roll_dice(num_rolls, dice)
+    else:
+        score = free_bacon(opponent_score)
+    return score
     # END PROBLEM 3
 
 
@@ -83,7 +87,24 @@ def swine_align(player_score, opponent_score):
     False
     """
     # BEGIN PROBLEM 4a
-    "*** YOUR CODE HERE ***"
+    if player_score == 0 or opponent_score == 0:
+        return False
+
+    def cal_GCD(m, n):
+        if m > n:
+            m, n = m, n
+        else:
+            m, n = n, m
+        if m % n == 0:
+            return n
+        else:
+            return cal_GCD(n, m % n)
+
+    if cal_GCD(player_score, opponent_score) >= 10 and player_score > 0 and opponent_score > 0:
+        return True
+    else:
+        return False
+
     # END PROBLEM 4a
 
 
@@ -105,7 +126,11 @@ def pig_pass(player_score, opponent_score):
     False
     """
     # BEGIN PROBLEM 4b
-    "*** YOUR CODE HERE ***"
+    res = player_score - opponent_score
+    if res > -3 and res < 0:
+        return True
+    else:
+        return False
     # END PROBLEM 4b
 
 
@@ -144,7 +169,24 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
-    "*** YOUR CODE HERE ***"
+    s0 = score0
+    s1 = score1
+    for paras in [[strategy0, strategy1, 0], [strategy1, strategy0, 1]]:
+        strategy0, strategy1, flag = paras
+        if flag == 0:
+            s0, s1 = score0, score1
+        else:
+            s0, s1 = score1, score0
+        s0 += take_turn(strategy0(s0, s1), s1, dice=dice)
+        while extra_turn(s0, s1) and s0 < goal:
+            s0 += take_turn(strategy0(s0, s1), s1, dice=dice)
+        if flag == 0:
+            score0 = s0
+        else:
+            score1 = s0
+        if s0 >= goal:
+            break
+
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
