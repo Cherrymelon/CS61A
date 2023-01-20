@@ -5,49 +5,49 @@ test = {
     {
       'cases': [
         {
-            'answer': 'While score0 and score1 are both less than goal',
-            'choices': [
-                'While score0 and score1 are both less than goal',
-                'While at least one of score0 or score1 is less than goal',
-                'While score0 is less than goal',
-                'While score1 is less than goal'
-            ],
-            'hidden': False,
-            'locked': False,
-            'question': r"""
+          'answer': 'While score0 and score1 are both less than goal',
+          'choices': [
+            'While score0 and score1 are both less than goal',
+            'While at least one of score0 or score1 is less than goal',
+            'While score0 is less than goal',
+            'While score1 is less than goal'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': r"""
           The variables score0 and score1 are the scores for Player 0
           and Player 1, respectively. Under what conditions should the
           game continue?
           """
         },
-          {
-              'answer': 'A function that returns the number of dice a player will roll',
-              'choices': [
-                  'The number of dice a player will roll',
-                  'A function that returns the number of dice a player will roll',
-                  "A player's desired turn outcome"
-              ],
-              'hidden': False,
-              'locked': False,
-              'question': 'What is a strategy in the context of this game?'
-          },
-          {
-              'answer': 'strategy1(score1, score0)',
-              'choices': [
-                  'strategy1(score1, score0)',
-                  'strategy1(score0, score1)',
-                  'strategy1(score1)',
-                  'strategy1(score0)'
-              ],
-              'hidden': False,
-              'locked': False,
-              'question': r"""
+        {
+          'answer': 'A function that returns the number of dice a player will roll',
+          'choices': [
+            'The number of dice a player will roll',
+            'A function that returns the number of dice a player will roll',
+            "A player's desired turn outcome"
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': 'What is a strategy in the context of this game?'
+        },
+        {
+          'answer': 'strategy1(score1, score0)',
+          'choices': [
+            'strategy1(score1, score0)',
+            'strategy1(score0, score1)',
+            'strategy1(score1)',
+            'strategy1(score0)'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': r"""
           If strategy1 is Player 1's strategy function, score0 is
           Player 0's current score, and score1 is Player 1's current
           score, then which of the following demonstrates correct
           usage of strategy1?
           """
-          }
+        }
       ],
       'scored': False,
       'type': 'concept'
@@ -65,7 +65,7 @@ test = {
           10
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -78,7 +78,7 @@ test = {
           0
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -132,7 +132,7 @@ test = {
           108
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         }
       ],
       'scored': True,

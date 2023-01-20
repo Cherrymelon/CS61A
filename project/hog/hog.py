@@ -169,23 +169,22 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
-    s0 = score0
-    s1 = score1
-    for paras in [[strategy0, strategy1, 0], [strategy1, strategy0, 1]]:
-        strategy0, strategy1, flag = paras
-        if flag == 0:
-            s0, s1 = score0, score1
+
+    while score0 < goal and score1 < goal:
+        if who == 0:
+            num_rolls = strategy0(score0, score1)
+            score0  +=take_turn(num_rolls, score1, dice)
+
+        elif who == 1:
+            num_rolls = strategy1(score1, score0)
+            score1 +=take_turn(num_rolls, score0, dice)
+        is_again = extra_turn(*[score0, score1] if not who else [score1, score0])
+        if is_again:
+            continue
         else:
-            s0, s1 = score1, score0
-        s0 += take_turn(strategy0(s0, s1), s1, dice=dice)
-        while extra_turn(s0, s1) and s0 < goal:
-            s0 += take_turn(strategy0(s0, s1), s1, dice=dice)
-        if flag == 0:
-            score0 = s0
-        else:
-            score1 = s0
-        if s0 >= goal:
-            break
+            who = other(who)
+            # if who:
+            say=say(score0,score1)
 
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)

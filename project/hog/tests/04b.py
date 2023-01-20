@@ -10,7 +10,7 @@ test = {
           False
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -18,7 +18,7 @@ test = {
           False
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -26,7 +26,7 @@ test = {
           False
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -34,7 +34,7 @@ test = {
           True
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -42,7 +42,7 @@ test = {
           False
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -50,7 +50,7 @@ test = {
           True
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
@@ -58,7 +58,7 @@ test = {
           False
           """,
           'hidden': False,
-            'locked': False
+          'locked': False
         },
         {
           'code': r"""
